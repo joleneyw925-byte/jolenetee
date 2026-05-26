@@ -11,10 +11,9 @@ age = {'Hans': 24, 'Prag': 23, 'Bunyod': 18}
 
 print(age)
 
-my_dict={"name":'Hans',"age":'24'}
-print(my_dict.get("age"))
+print(age["Hans"])
 
 my_dict= {"name":'Prag',"age":'30'}
 print(my_dict.get("age"))
 
-.pop(['Bunyod':18])
+del age["Bunyod"]
