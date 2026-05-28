@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import random
-import google.generativeai as genai
+import google.genai as genai
 
 genai.Client(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel("gemini-1.5-flash")
