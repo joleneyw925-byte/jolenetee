@@ -1,8 +1,9 @@
 import streamlit as st
 import pandas as pd
 import random
-import google-genai as genai
+from google import genai
 
+GOOGLE_API_KEY = st.secrets["GOOGLE_API"]
 genai.Client(api_key=GOOGLE_API_KEY)
 
 def ai_chat(user_input):
