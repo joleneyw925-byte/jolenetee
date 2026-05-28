@@ -3,20 +3,25 @@ import pandas as pd
 import random
 import google.generativeai as genai
 
-genai.configure(api_key="YOUR_API_KEY")
-
+genai.Client(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 def ai_chat(user_input):
     try:
-        response = model.generate_content(user_input)
+        response = model.generate_content(
+            model='gemeni-2.5-flash',
+            contents=user_input
+        )
         return response.text
     except Exception as e:
         return f"Error: {e}"
 
 # 2 then functions
 def ai_chat(user_input):
-    response = model.generate_content(user_input)
+    response = model.generate_content(
+        model='gemeni-2.5-flash',
+        contents=user_input
+    )
     return response.text
 
 # -------------------------
