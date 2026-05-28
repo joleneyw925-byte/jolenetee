@@ -180,21 +180,6 @@ def match_students(user_interests, user_course):
     return sorted(results, key=lambda x: x["score"], reverse=True)
 
 # -------------------------
-# AI CHATBOT
-# -------------------------
-import google.generativeai as genai
-
-genai.configure(api_key="AIzaSyDVw2z7B4jobUf9gTQXYBVTGF9Nv7G7tSA")
-
-model = genai.GenerativeModel("gemini-1.5-flash")
-
-def ai_chat(user_input):
-    try:
-        response = model.generate_content(user_input)
-        return response.text
-    except Exception as e:
-        return f"error: {e}"
-# -------------------------
 # HERO SECTION
 # -------------------------
 st.markdown("""
