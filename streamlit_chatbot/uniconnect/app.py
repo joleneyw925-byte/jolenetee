@@ -1,15 +1,14 @@
 import streamlit as st
 import pandas as pd
 import random
-import google as genai
+from google import genai
 
 genai.Client(api_key=GOOGLE_API_KEY)
-model = genai.GenerativeModel("gemini-1.5-flash")
 
 def ai_chat(user_input):
     try:
         response = model.generate_content(
-            model='gemeni-2.5-flash',
+            model='gemeni-2.5-flash-lite',
             contents=user_input
         )
         return response.text
@@ -19,7 +18,7 @@ def ai_chat(user_input):
 # 2 then functions
 def ai_chat(user_input):
     response = model.generate_content(
-        model='gemeni-2.5-flash',
+        model='gemeni-2.5-flash-lite',
         contents=user_input
     )
     return response.text
