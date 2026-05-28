@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import random
-from google import genai
+import google.genai as genai
 
 genai.Client(api_key=GOOGLE_API_KEY)
 
