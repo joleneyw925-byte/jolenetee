@@ -1,6 +1,28 @@
 import streamlit as st
 import pandas as pd
 import random
+from google import genai
+
+GOOGLE_API_KEY = st.secrets["GOOGLE_API"]
+genai.Client(api_key=GOOGLE_API_KEY)
+
+def ai_chat(user_input):
+    try:
+        response = model.generate_content(
+            model='gemeni-2.5-flash-lite',
+            contents=user_input
+        )
+        return response.text
+    except Exception as e:
+        return f"Error: {e}"
+
+# 2 then functions
+def ai_chat(user_input):
+    response = model.generate_content(
+        model='gemeni-2.5-flash-lite',
+        contents=user_input
+    )
+    return response.text
 
 # -------------------------
 # PAGE CONFIG
@@ -160,36 +182,18 @@ def match_students(user_interests, user_course):
 # -------------------------
 # AI CHATBOT
 # -------------------------
+import google.generativeai as genai
+
+genai.configure(api_key="AIzaSyDVw2z7B4jobUf9gTQXYBVTGF9Nv7G7tSA")
+
+model = genai.GenerativeModel("gemini-1.5-flash")
+
 def ai_chat(user_input):
-
-    user_input = user_input.lower()
-
-    responses = {
-        "friend": [
-            "try matching with people who share your hobbies",
-            "students from the same course usually connect faster",
-            "joining clubs is also a great way to meet people"
-        ],
-
-        "ai": [
-            "the ai system compares course similarity + shared interests",
-            "matches are ranked using overlap scoring",
-            "more common interests = higher compatibility"
-        ],
-
-        "help": [
-            "go to social match and enter your interests",
-            "you can test demo profiles too",
-            "try interests like gaming music ai coding"
-        ]
-    }
-
-    for keyword in responses:
-        if keyword in user_input:
-            return random.choice(responses[keyword])
-
-    return "i can help with matching friends courses or interests"
-
+    try:
+        response = model.generate_content(user_input)
+        return response.text
+    except Exception as e:
+        return f"error: {e}"
 # -------------------------
 # HERO SECTION
 # -------------------------
